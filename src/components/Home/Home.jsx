@@ -71,7 +71,13 @@ function Home() {
                 }}
               >
                 <label htmlFor="go"> ذهاب </label>
-                <input type="radio" value={"male"} id="go" name="journey" />
+                <input
+                  type="radio"
+                  value={"male"}
+                  id="go"
+                  name="journey"
+                  onChange={() => setChange(false)}
+                />
 
                 <label htmlFor="back"> ذهاب و عوده </label>
                 <input
@@ -86,16 +92,13 @@ function Home() {
               <input type="date" />
               <label htmlFor="cities" style={{ textAlign: "right" }}>
                 {" "}
-                مدينه الذهاب{" "}
+                اختر الجمعيه{" "}
               </label>
               <select className="form-select" id="cities">
-                {citys.map((city, index) => (
-                  <option value="2" key={index}>
-                    {city}
-                  </option>
-                ))}
+                <option value="2">جمعيه السالميه</option>
+                <option value="2">جمعيه الفراونيه</option>
+                <option value="2">جمعيه حولى</option>
               </select>
-
               {change ? (
                 <>
                   <label style={{ textAlign: "right" }}>
@@ -103,19 +106,44 @@ function Home() {
                     موعد رحله العوده{" "}
                   </label>
                   <input type="date" />
-                  <label style={{ textAlign: "right" }}>مدينه العوده </label>
+                  <label style={{ textAlign: "right" }}>
+                    مدينه العوده اختر من{" "}
+                  </label>
                   <select className="form-select" id="cities">
-                    {citys.map((city, index) => (
-                      <option value="2" key={index}>
-                        {city}
-                      </option>
-                    ))}
+                    <option value="مزايا">مجمع مزايا</option>
+                    <option value="العاصمه">العاصمه</option>
+                    <option value="كيبكو">كيبكو</option>
+                    <option value="الحمراء">الحمراء</option>
                   </select>{" "}
                 </>
               ) : (
                 ""
               )}
-              <button type="submit"> اشترك الان </button>
+              <label style={{ textAlign: "right" }}>عدد الشهور</label>
+              <select className="form-select">
+                <option value="شهر واحد ">شهر واحد </option>
+                <option value="شهرين">شهرين </option>
+                <option value="ثلاثه شهور ">ثلاثه شهور </option>
+              </select>{" "}
+              <label style={{ textAlign: "right" }}>نوع الشخص </label>
+              <select className="form-select">
+                <option value="طالب"> طالب </option>
+                <option value="طالبه">طالبه </option>
+                <option value="موظف">موظف </option>
+                <option value="موظفه">موظفه </option>
+              </select>{" "}
+              <div className="d-flex p-2 mb-1">
+              
+              <label htmlFor="agree" > الموافقه على الشروط والاحكام </label>
+              <input type="checkbox" id="agree" style={{width:"15px"}}/>
+              </div>
+              <label style={{ textAlign: "right" }}> طريقه الدفع </label>
+              <select className="form-select">
+                <option value="طالب"> كى نت </option>
+                <option value="طالبه"> فيزا </option>
+                <option value="موظف">مستر كارد  </option>
+              </select>{" "}
+              <button type="submit"> الدفع الان  </button>
             </form>
           </div>
         </section>
